@@ -1,0 +1,2499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHIFTER. Manual de Marca 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --black-oxide: #0A0A0A;
+    --raw-steel: #1E1E1E;
+    --caution-yellow: #D4A72B;
+    --paper-white: #F0ECE4;
+    --anodized: #3D3D3D;
+    --yellow-light: #E8C45A;
+    --yellow-dark: #B08D1F;
+    --yellow-10: rgba(212, 167, 43, 0.1);
+    --yellow-20: rgba(212, 167, 43, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--black-oxide);
+    color: var(--paper-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,167,43,0.15);
+    padding: 0 3rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  nav .nav-brand img {
+    height: 24px;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    color: rgba(240,236,228,0.6);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--caution-yellow); }
+
+  /* ── SECTIONS ── */
+  section {
+    min-height: 100vh;
+    padding: 8rem 6rem 6rem;
+    position: relative;
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--caution-yellow);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p.lead {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(240,236,228,0.75);
+    max-width: 680px;
+  }
+
+  p.body-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(240,236,228,0.65);
+    max-width: 620px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--caution-yellow);
+    margin: 2rem 0;
+  }
+
+  .divider-thin {
+    width: 100%;
+    height: 1px;
+    background: rgba(240,236,228,0.08);
+    margin: 4rem 0;
+  }
+
+  /* ── COVER ── */
+  #cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--black-oxide);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem;
+  }
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 50% 40%, rgba(212,167,43,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  #cover .cover-logo {
+    width: min(600px, 80vw);
+    margin-bottom: 3rem;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    opacity: 0.95;
+  }
+  #cover .cover-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--caution-yellow);
+    margin-bottom: 1rem;
+  }
+  #cover .cover-year {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(240,236,228,0.35);
+    letter-spacing: 0.1em;
+  }
+  .cover-line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--caution-yellow), transparent);
+    margin: 3rem auto 0;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  #toc {
+    background: var(--raw-steel);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .toc-list {
+    list-style: none;
+  }
+  .toc-list li {
+    border-bottom: 1px solid rgba(240,236,228,0.06);
+    padding: 1.2rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .toc-list .toc-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--caution-yellow);
+    min-width: 30px;
+  }
+  .toc-list .toc-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--paper-white);
+  }
+  .toc-list a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+  }
+  .toc-list a:hover .toc-label { color: var(--caution-yellow); }
+
+  /* ── BRAND ESSENCE ── */
+  #essence {
+    background: var(--black-oxide);
+  }
+  .essence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+  }
+  .essence-card {
+    background: var(--raw-steel);
+    border: 1px solid rgba(240,236,228,0.05);
+    border-radius: 2px;
+    padding: 2.5rem;
+  }
+  .essence-card h3 {
+    color: var(--caution-yellow);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 1.2rem;
+  }
+  .essence-card p {
+    color: rgba(240,236,228,0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+  .tagline-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--caution-yellow);
+    margin: 4rem 0 1.5rem;
+    line-height: 1.1;
+  }
+  .values-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  .value-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border: 1px solid rgba(212,167,43,0.15);
+    border-radius: 2px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .value-item:hover {
+    border-color: var(--caution-yellow);
+    background: var(--yellow-10);
+  }
+  .value-item .value-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--caution-yellow);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+  }
+  .value-item h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .value-item p {
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.5);
+    line-height: 1.6;
+  }
+
+  /* ── LOGO ── */
+  #logo { background: var(--raw-steel); }
+  .logo-display {
+    background: var(--anodized);
+    border: 1px solid rgba(240,236,228,0.08);
+    border-radius: 4px;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+  }
+  .logo-display img {
+    width: min(500px, 70vw);
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+  .logo-display-dark {
+    background: var(--black-oxide);
+    border: 1px solid rgba(240,236,228,0.08);
+    border-radius: 4px;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .logo-display-dark img {
+    width: min(500px, 70vw);
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+  .logo-display-yellow {
+    background: var(--caution-yellow);
+    border-radius: 4px;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .logo-display-yellow img {
+    width: min(500px, 70vw);
+    mix-blend-mode: multiply;
+  }
+  .logo-variants {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .logo-variant-card {
+    border: 1px solid rgba(240,236,228,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .logo-variant-card .lv-preview {
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+  }
+  .logo-variant-card .lv-preview img { width: 200px; mix-blend-mode: screen; }
+  .logo-variant-card .lv-info {
+    padding: 1rem 1.5rem;
+    background: rgba(240,236,228,0.03);
+    border-top: 1px solid rgba(240,236,228,0.06);
+  }
+  .logo-variant-card .lv-info h4 {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--caution-yellow);
+    margin-bottom: 0.25rem;
+  }
+  .logo-variant-card .lv-info p {
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.5);
+  }
+
+  /* Clear Space & Min Size */
+  .clearspace-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+    background: var(--black-oxide);
+    border: 1px solid rgba(240,236,228,0.08);
+    border-radius: 4px;
+    padding: 4rem;
+    position: relative;
+  }
+  .clearspace-demo .cs-logo {
+    width: 300px;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    position: relative;
+  }
+  .clearspace-demo .cs-border {
+    position: absolute;
+    border: 1px dashed var(--caution-yellow);
+    top: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    width: 360px;
+    height: calc(100% - 5rem);
+    opacity: 0.5;
+  }
+  .clearspace-label {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.1em;
+  }
+
+  /* Do / Don't grid */
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .dd-card {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(240,236,228,0.08);
+  }
+  .dd-card .dd-preview {
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    background: var(--black-oxide);
+  }
+  .dd-card .dd-preview img { width: 180px; mix-blend-mode: screen; }
+  .dd-card .dd-label {
+    padding: 0.8rem 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .dd-card .dd-label.do { background: rgba(76,175,80,0.15); color: #66BB6A; }
+  .dd-card .dd-label.dont { background: rgba(244,67,54,0.15); color: #EF5350; }
+  .dd-card .dd-desc {
+    padding: 0.6rem 1.2rem 1rem;
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.5);
+  }
+
+  /* ── COLORS ── */
+  #colors { background: var(--black-oxide); }
+  .color-hero {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 3rem 0;
+  }
+  .color-swatch {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(240,236,228,0.06);
+  }
+  .color-swatch .cs-block {
+    height: 200px;
+    transition: transform 0.3s;
+  }
+  .color-swatch:hover .cs-block { transform: scale(1.02); }
+  .color-swatch .cs-info {
+    padding: 1.2rem;
+    background: var(--raw-steel);
+  }
+  .color-swatch .cs-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .color-swatch .cs-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.5);
+    margin-bottom: 0.3rem;
+  }
+  .color-swatch .cs-rgb {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(240,236,228,0.35);
+  }
+  .color-swatch .cs-role {
+    font-size: 0.7rem;
+    color: var(--caution-yellow);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  /* Color Ratios */
+  .color-ratios {
+    display: flex;
+    gap: 0;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 3rem 0 1rem;
+  }
+  .cr-segment { display: flex; align-items: center; justify-content: center; }
+  .cr-segment span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .cr-labels {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+  .cr-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.4);
+    text-align: center;
+  }
+
+  /* Accessible combos */
+  .accessibility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .acc-combo {
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(240,236,228,0.06);
+  }
+  .acc-combo .acc-sample {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .acc-combo .acc-ratio {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+  .acc-combo .acc-pass {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .pass-aa { background: rgba(76,175,80,0.2); color: #66BB6A; }
+  .pass-aaa { background: rgba(76,175,80,0.3); color: #81C784; }
+
+  /* Gradient section */
+  .gradient-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .gradient-card {
+    height: 120px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+  }
+  .gradient-card span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--paper-white);
+    opacity: 0.7;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  #typography { background: var(--raw-steel); }
+  .type-specimen {
+    margin: 3rem 0;
+  }
+  .type-specimen .ts-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .type-primary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+  .type-secondary {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: rgba(240,236,228,0.7);
+    margin-bottom: 0.5rem;
+  }
+  .type-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    color: rgba(240,236,228,0.5);
+  }
+
+  /* Type scale */
+  .type-scale {
+    margin: 3rem 0;
+    border-left: 2px solid var(--caution-yellow);
+    padding-left: 2rem;
+  }
+  .type-scale-item {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+  }
+  .type-scale-item .ts-meta {
+    min-width: 160px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.4);
+    line-height: 1.6;
+  }
+  .type-scale-item .ts-sample {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .ts-h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.05; }
+  .ts-h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.1; }
+  .ts-h3 { font-size: 1.75rem; font-weight: 600; line-height: 1.2; }
+  .ts-h4 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+  .ts-body { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.75; color: rgba(240,236,228,0.7); }
+  .ts-small { font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.6; color: rgba(240,236,228,0.5); }
+  .ts-caption { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500; line-height: 1.5; color: rgba(240,236,228,0.4); }
+
+  /* Weights display */
+  .weight-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .weight-card {
+    background: var(--black-oxide);
+    border: 1px solid rgba(240,236,228,0.06);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .weight-card .wc-sample {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .weight-card .wc-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .weight-card .wc-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.35);
+    margin-top: 0.25rem;
+  }
+
+  /* ── VOICE ── */
+  #voice { background: var(--black-oxide); }
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .voice-card {
+    background: var(--raw-steel);
+    border: 1px solid rgba(240,236,228,0.05);
+    border-radius: 4px;
+    padding: 2.5rem;
+  }
+  .voice-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .voice-card .voice-example {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: var(--paper-white);
+  }
+  .voice-card .voice-context {
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.4);
+    font-style: italic;
+  }
+
+  /* Tone spectrum */
+  .tone-spectrum {
+    display: flex;
+    gap: 0;
+    margin: 3rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tone-bar {
+    flex: 1;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid rgba(10,10,10,0.3);
+  }
+  .tone-bar:last-child { border-right: none; }
+  .tone-bar h5 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .tone-bar p {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+  .tone-active {
+    background: var(--caution-yellow);
+    color: var(--black-oxide);
+  }
+  .tone-adjacent {
+    background: var(--yellow-20);
+    color: var(--paper-white);
+  }
+  .tone-far {
+    background: rgba(240,236,228,0.05);
+    color: rgba(240,236,228,0.5);
+  }
+
+  /* We say / We don't say */
+  .say-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .say-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid;
+  }
+  .say-col.say-yes h4 { color: #66BB6A; border-color: #66BB6A; }
+  .say-col.say-no h4 { color: #EF5350; border-color: #EF5350; }
+  .say-col ul {
+    list-style: none;
+  }
+  .say-col li {
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+    color: rgba(240,236,228,0.65);
+    border-bottom: 1px solid rgba(240,236,228,0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .say-col li::before {
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 16px;
+  }
+  .say-yes li::before { content: '+'; color: #66BB6A; }
+  .say-no li::before { content: '×'; color: #EF5350; }
+
+  /* ── PHOTOGRAPHY ── */
+  #photography { background: var(--raw-steel); }
+  .photo-principles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .photo-card {
+    background: var(--black-oxide);
+    border: 1px solid rgba(240,236,228,0.06);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .photo-card .pc-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--yellow-10);
+    border: 1px solid var(--yellow-20);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--caution-yellow);
+    font-weight: 700;
+  }
+  .photo-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .photo-card p {
+    font-size: 0.85rem;
+    color: rgba(240,236,228,0.5);
+    line-height: 1.7;
+  }
+
+  /* Photo overlay style */
+  .photo-overlay-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .pod-item {
+    background: var(--anodized);
+    border-radius: 4px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    border: 1px solid rgba(240,236,228,0.06);
+  }
+  .pod-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 60%);
+  }
+  .pod-item .pod-text {
+    position: relative;
+    z-index: 1;
+  }
+  .pod-item .pod-text h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .pod-item .pod-text p {
+    font-size: 0.75rem;
+    color: rgba(240,236,228,0.5);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── APPLICATIONS ── */
+  #applications { background: var(--black-oxide); }
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .app-card {
+    border: 1px solid rgba(240,236,228,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--raw-steel);
+  }
+  .app-preview {
+    min-height: 280px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .app-info {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(240,236,228,0.06);
+  }
+  .app-info h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .app-info p {
+    font-size: 0.8rem;
+    color: rgba(240,236,228,0.4);
+  }
+
+  /* Business card mockup */
+  .bcard {
+    width: 340px;
+    height: 200px;
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .bcard-front {
+    background: var(--black-oxide);
+    border: 1px solid rgba(212,167,43,0.2);
+  }
+  .bcard-front img { width: 140px; filter: invert(1); mix-blend-mode: screen; }
+  .bcard-front .bcard-tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .bcard-back {
+    background: var(--caution-yellow);
+  }
+  .bcard-back .bcard-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black-oxide);
+  }
+  .bcard-back .bcard-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(10,10,10,0.6);
+    margin-top: 0.2rem;
+  }
+  .bcard-back .bcard-details {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--black-oxide);
+    line-height: 1.8;
+  }
+
+  /* Social mockup */
+  .social-mockup {
+    width: 300px;
+    background: var(--black-oxide);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(240,236,228,0.1);
+  }
+  .sm-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(240,236,228,0.06);
+  }
+  .sm-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--caution-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--black-oxide);
+  }
+  .sm-handle {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .sm-sub {
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.4);
+  }
+  .sm-image {
+    width: 100%;
+    height: 200px;
+    background: var(--anodized);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .sm-image img { width: 120px; filter: invert(1); mix-blend-mode: screen; }
+  .sm-caption {
+    padding: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(240,236,228,0.6);
+  }
+  .sm-caption strong { color: var(--paper-white); }
+
+  /* Product tag mockup */
+  .product-tag {
+    width: 180px;
+    height: 280px;
+    background: var(--black-oxide);
+    border: 1px solid rgba(212,167,43,0.25);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .product-tag img { width: 100px; filter: invert(1); mix-blend-mode: screen; }
+  .product-tag .pt-line {
+    width: 30px;
+    height: 2px;
+    background: var(--caution-yellow);
+  }
+  .product-tag .pt-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(240,236,228,0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+  .product-tag .pt-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    color: rgba(240,236,228,0.2);
+    margin-top: 0.5rem;
+  }
+
+  /* Sticker mockup */
+  .sticker-row {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+  }
+  .sticker {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .sticker img { filter: invert(1); mix-blend-mode: screen; }
+  .sticker-dark {
+    background: var(--black-oxide);
+    border: 2px solid var(--caution-yellow);
+    width: 200px; height: 80px;
+  }
+  .sticker-dark img { width: 120px; }
+  .sticker-yellow {
+    background: var(--caution-yellow);
+    width: 200px; height: 80px;
+  }
+  .sticker-yellow img { width: 120px; filter: none; mix-blend-mode: multiply; }
+  .sticker-white {
+    background: var(--anodized);
+    border: 2px solid rgba(240,236,228,0.2);
+    width: 200px; height: 80px;
+  }
+  .sticker-white img { width: 120px; filter: invert(1); mix-blend-mode: screen; }
+
+  /* ── DIGITAL UI ── */
+  #digital { background: var(--raw-steel); }
+
+  /* Button system */
+  .button-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  .btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    padding: 0.9rem 2rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--caution-yellow);
+    color: var(--black-oxide);
+  }
+  .btn-primary:hover { background: var(--yellow-light); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--paper-white);
+    border: 1px solid rgba(240,236,228,0.25);
+  }
+  .btn-secondary:hover { border-color: var(--caution-yellow); color: var(--caution-yellow); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--caution-yellow);
+    padding: 0.9rem 1.5rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .btn-dark {
+    background: var(--black-oxide);
+    color: var(--paper-white);
+  }
+  .btn-small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.75rem;
+  }
+
+  /* Component samples */
+  .ui-components {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .ui-comp {
+    background: var(--black-oxide);
+    border: 1px solid rgba(240,236,228,0.06);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .ui-comp-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  /* Input mockup */
+  .input-mock {
+    width: 100%;
+    background: rgba(240,236,228,0.03);
+    border: 1px solid rgba(240,236,228,0.1);
+    border-radius: 3px;
+    padding: 0.8rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--paper-white);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .input-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.4);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  /* Product card mock */
+  .prod-card-mock {
+    background: var(--raw-steel);
+    border: 1px solid rgba(240,236,228,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 240px;
+  }
+  .pcm-image {
+    height: 180px;
+    background: var(--anodized);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pcm-image span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.3);
+  }
+  .pcm-info {
+    padding: 1.2rem;
+  }
+  .pcm-info .pcm-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--caution-yellow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .pcm-info .pcm-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .pcm-info .pcm-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--caution-yellow);
+    font-weight: 600;
+  }
+  .pcm-info .pcm-old-price {
+    font-size: 0.7rem;
+    color: rgba(240,236,228,0.3);
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+  }
+
+  /* ── ICONOGRAPHY ── */
+  #iconography { background: var(--black-oxide); }
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  .icon-item {
+    background: var(--raw-steel);
+    border: 1px solid rgba(240,236,228,0.05);
+    border-radius: 4px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+  .icon-item:hover { border-color: var(--caution-yellow); }
+  .icon-item .icon-svg {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    color: var(--paper-white);
+  }
+  .icon-item .icon-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(240,236,228,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PATTERNS ── */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .pattern-card {
+    height: 200px;
+    border-radius: 4px;
+    border: 1px solid rgba(240,236,228,0.06);
+    overflow: hidden;
+    position: relative;
+  }
+  .pattern-card .pc-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.8rem 1rem;
+    background: rgba(10,10,10,0.85);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  /* Diagonal stripe pattern */
+  .pat-stripes {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--caution-yellow),
+      var(--caution-yellow) 2px,
+      var(--black-oxide) 2px,
+      var(--black-oxide) 12px
+    );
+  }
+  .pat-dots {
+    background: radial-gradient(circle, var(--caution-yellow) 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-color: var(--black-oxide);
+  }
+  .pat-grid-lines {
+    background:
+      linear-gradient(rgba(212,167,43,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,167,43,0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-color: var(--black-oxide);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--raw-steel);
+    padding: 4rem 6rem;
+    text-align: center;
+    border-top: 1px solid rgba(212,167,43,0.15);
+  }
+  footer img {
+    width: 160px;
+    filter: invert(1);
+    mix-blend-mode: screen;
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+  }
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(240,236,228,0.25);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    section { padding: 6rem 3rem 4rem; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .toc-grid, .essence-grid, .voice-grid, .dos-donts, .say-grid, .app-grid, .ui-components, .photo-overlay-demo { grid-template-columns: 1fr; }
+    .color-hero { grid-template-columns: repeat(3, 1fr); }
+    .values-row { grid-template-columns: repeat(2, 1fr); }
+    .logo-variants { grid-template-columns: 1fr 1fr; }
+    .weight-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-principles { grid-template-columns: 1fr 1fr; }
+    .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    .pattern-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+    .type-scale-item { flex-direction: column; gap: 0.5rem; }
+    .type-scale-item .ts-meta { min-width: auto; }
+    .ts-h1 { font-size: 2.5rem; }
+    .ts-h2 { font-size: 2rem; }
+    .logo-display, .logo-display-dark, .logo-display-yellow { padding: 3rem 2rem; }
+    .bcard { width: 280px; height: 170px; padding: 1.5rem; }
+    .social-mockup { width: 260px; }
+    .product-tag { width: 150px; height: 240px; }
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 4.5rem 1.25rem 2.5rem; }
+    nav { padding: 0 1.25rem; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p.lead { font-size: 1rem; }
+    .color-hero { grid-template-columns: 1fr 1fr; }
+    .color-hero .color-swatch .cs-block { height: 120px; }
+    .values-row { grid-template-columns: 1fr; }
+    .logo-variants { grid-template-columns: 1fr; }
+    .weight-grid { grid-template-columns: 1fr 1fr; }
+    .accessibility-grid { grid-template-columns: 1fr; }
+    .gradient-row { grid-template-columns: 1fr; }
+    .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    .photo-principles { grid-template-columns: 1fr; }
+    .tagline-display { font-size: 1.6rem; }
+    .type-primary { font-size: 2rem; }
+    .type-secondary { font-size: 1.2rem; }
+    .ts-h1 { font-size: 1.8rem; }
+    .ts-h2 { font-size: 1.4rem; }
+    .ts-h3 { font-size: 1.2rem; }
+    footer { padding: 3rem 1.25rem; }
+    .logo-display, .logo-display-dark, .logo-display-yellow { padding: 2rem 1rem; }
+    .logo-display img, .logo-display-dark img, .logo-display-yellow img { width: min(300px, 80vw); }
+    .clearspace-demo { padding: 2rem 1rem; }
+    .clearspace-demo .cs-logo { width: 200px; }
+    .clearspace-demo .cs-border { width: 240px; }
+    .bcard { width: 260px; height: 160px; padding: 1.2rem; }
+    .bcard-front img { width: 110px !important; }
+    .bcard-back .bcard-name { font-size: 0.85rem; }
+    .social-mockup { width: 240px; }
+    .sm-image { height: 150px; }
+    .product-tag { width: 140px; height: 220px; padding: 1rem; }
+    .sticker-row { flex-wrap: wrap; justify-content: center; }
+    .sticker { width: 160px !important; height: 65px !important; }
+    .sticker img { width: 100px !important; }
+    .button-showcase { gap: 0.8rem; }
+    .btn { padding: 0.7rem 1.2rem; font-size: 0.75rem; }
+    .tone-spectrum { flex-direction: column; }
+    .tone-bar { padding: 1.2rem 1rem; border-right: none; border-bottom: 1px solid rgba(10,10,10,0.3); }
+    .tone-bar:last-child { border-bottom: none; }
+    .color-ratios { flex-direction: column; height: auto; }
+    .cr-segment { padding: 0.8rem; justify-content: flex-start; }
+    .cr-labels { flex-direction: column; }
+    .cr-label { text-align: left; padding: 0.2rem 0; }
+    .pod-item { height: 200px; }
+    .app-preview { min-height: 220px; }
+    #cover { padding: 3rem 1.5rem; }
+    #cover .cover-logo { width: min(320px, 85vw); }
+    .pattern-grid { grid-template-columns: 1fr; }
+    .pattern-card { height: 140px; }
+    .essence-card { padding: 1.5rem; }
+    .voice-card { padding: 1.5rem; }
+    .voice-card .voice-example { font-size: 1.05rem; }
+    .photo-card { padding: 1.5rem; }
+    .ui-comp { padding: 1.5rem; }
+    .value-item { padding: 1.5rem 1rem; }
+    /* Spacing system: scroll horizontally */
+    .spacing-row { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    /* Border radius demo: wrap */
+    .radius-row { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 380px) {
+    section { padding: 4rem 1rem 2rem; }
+    nav { padding: 0 1rem; }
+    h2 { font-size: 1.3rem; }
+    .tagline-display { font-size: 1.3rem; }
+    .color-hero { grid-template-columns: 1fr; }
+    .icon-grid { grid-template-columns: repeat(2, 1fr); }
+    .weight-grid { grid-template-columns: 1fr; }
+    .bcard { width: 230px; height: 140px; padding: 1rem; }
+    .social-mockup { width: 220px; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    nav { display: none; }
+    section { break-inside: avoid; min-height: auto; padding: 2rem; }
+    body { background: white; color: #0A0A0A; }
+    .color-swatch .cs-info { background: #f5f5f5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><img src="logo.png" alt="SHIFTER."></div>
+  <ul>
+    <li><a href="#essence">Esencia</a></li>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#colors">Colores</a></li>
+    <li><a href="#typography">Tipo</a></li>
+    <li><a href="#voice">Voz</a></li>
+    <li><a href="#photography">Foto</a></li>
+    <li><a href="#applications">Aplicaciones</a></li>
+    <li><a href="#digital">Digital</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  COVER                                         -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="cover">
+  <div class="cover-subtitle">Manual de Marca &mdash; Versi&oacute;n 1.0</div>
+  <img class="cover-logo" src="logo.png" alt="SHIFTER. Logo">
+  <div class="cover-year">2026 &middot; shifter.com.co</div>
+  <div class="cover-line"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  TABLE OF CONTENTS                             -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="toc">
+  <div class="toc-grid">
+    <div>
+      <span class="section-number">&Iacute;ndice</span>
+      <h2>Contenido</h2>
+      <p class="body-text">Este manual de marca es la referencia definitiva de c&oacute;mo SHIFTER se ve, suena y se siente en cada punto de contacto. Toda aplicaci&oacute;n de la marca debe partir de aqu&iacute;.</p>
+    </div>
+    <ul class="toc-list">
+      <li><a href="#essence"><span class="toc-num">01</span><span class="toc-label">Esencia &amp; Valores de Marca</span></a></li>
+      <li><a href="#logo"><span class="toc-num">02</span><span class="toc-label">Sistema de Logo &amp; Uso</span></a></li>
+      <li><a href="#colors"><span class="toc-num">03</span><span class="toc-label">Paleta de Color</span></a></li>
+      <li><a href="#typography"><span class="toc-num">04</span><span class="toc-label">Tipograf&iacute;a</span></a></li>
+      <li><a href="#voice"><span class="toc-num">05</span><span class="toc-label">Voz &amp; Tono de Marca</span></a></li>
+      <li><a href="#photography"><span class="toc-num">06</span><span class="toc-label">Fotograf&iacute;a &amp; Imagen</span></a></li>
+      <li><a href="#applications"><span class="toc-num">07</span><span class="toc-label">Aplicaciones de Marca</span></a></li>
+      <li><a href="#digital"><span class="toc-num">08</span><span class="toc-label">Gu&iacute;as Digitales &amp; UI</span></a></li>
+      <li><a href="#iconography"><span class="toc-num">09</span><span class="toc-label">Iconograf&iacute;a &amp; Patrones</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  01 · BRAND ESSENCE                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="essence">
+  <span class="section-number">01 &mdash; Esencia de Marca</span>
+  <h2>Hecho para Rodar.<br>Dise&ntilde;ado para Durar.</h2>
+  <p class="lead">SHIFTER es una marca colombiana para motociclistas serios de aventura y touring. Seleccionamos y entregamos accesorios premium para moto &mdash; sistemas de navegaci&oacute;n, equipaje en aluminio, protecci&oacute;n de motor y partes de rendimiento &mdash; elegidos por funci&oacute;n, durabilidad e integridad ingenieril.</p>
+
+  <div class="tagline-display">&ldquo;Gear That Moves You.&rdquo;</div>
+  <p class="body-text">Nuestro tagline captura el doble significado en el coraz&oacute;n de la marca: equipo que se mueve f&iacute;sicamente contigo en cada rodada, y equipo que inspira la pr&oacute;xima aventura. Es funcional, emocional y neutral en idioma.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Misi&oacute;n</h3>
+  <p class="body-text">Equipar a los motociclistas de aventura de Colombia con accesorios de clase mundial &mdash; productos elegidos por riders, para riders &mdash; que rindan tan duro como el terreno lo exige.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Pilares de Marca</h3>
+  <div class="values-row">
+    <div class="value-item">
+      <span class="value-icon">//</span>
+      <h4>Funci&oacute;n Primero</h4>
+      <p>Cada producto se gana su lugar por rendimiento, no por est&eacute;tica. IP67. Aluminio. Acero inoxidable. Sin compromisos.</p>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">[]</span>
+      <h4>Fundada por Riders</h4>
+      <p>Rodamos con lo que vendemos. Nuestro cat&aacute;logo nace de experiencia real en carreteras y caminos colombianos.</p>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">{}</span>
+      <h4>Premium, No Elitista</h4>
+      <p>El mejor equipo a precios justos. Accesible para cualquier rider que valore calidad y confiabilidad por encima del prestigio.</p>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">&lt;&gt;</span>
+      <h4>Probado en Terreno</h4>
+      <p>Andes. Amazon&iacute;a. Carreteras costeras. Nuestro equipo se prueba donde importa &mdash; no en una vitrina.</p>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Personalidad de Marca</h3>
+  <div class="essence-grid">
+    <div class="essence-card">
+      <h3>Somos</h3>
+      <p>Seguros. T&eacute;cnicos. Directos. Confiables. Capaces. Con los pies en la tierra. Hablamos con la autoridad de riders que han probado cada producto personalmente. Nuestra marca se siente industrial, precisa y premium &mdash; como el equipo que llevamos.</p>
+    </div>
+    <div class="essence-card">
+      <h3>No Somos</h3>
+      <p>Llamativos. Agresivos. Corporativos. Elitistas. Gen&eacute;ricos. No usamos calaveras, llamas ni est&eacute;tica tribal. No intentamos parecer una startup tech ni una marca de lujo. No sobrevendemos ni hacemos promesas vac&iacute;as.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  02 · LOGO                                     -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="logo">
+  <span class="section-number">02 &mdash; Sistema de Logo</span>
+  <h2>La Marca</h2>
+  <p class="lead">El wordmark de SHIFTER es audaz, din&aacute;mico e inconfundible. La energ&iacute;a it&aacute;lica y las formas afiladas transmiten movimiento hacia adelante, precisi&oacute;n mec&aacute;nica y la adrenalina de la rodada. El punto al final es intencional &mdash; es una declaraci&oacute;n, no una pregunta.</p>
+
+  <!-- Primario: sobre fondo gris -->
+  <div class="logo-display">
+    <img src="logo.png" alt="Logo SHIFTER. sobre gris">
+  </div>
+
+  <!-- Invertido: claro sobre oscuro -->
+  <div class="logo-display-dark">
+    <img src="logo.png" alt="Logo SHIFTER. sobre negro">
+  </div>
+
+  <!-- Acento: sobre amarillo -->
+  <div class="logo-display-yellow">
+    <img src="logo.png" alt="Logo SHIFTER. sobre amarillo">
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Variantes del Logo</h3>
+  <div class="logo-variants">
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Oscuro sobre gris" style="filter: invert(1);">
+      </div>
+      <div class="lv-info">
+        <h4>Primario &mdash; Oscuro</h4>
+        <p>Por defecto. Usar sobre fondos claros, superficies neutras, papel.</p>
+      </div>
+    </div>
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--black-oxide);">
+        <img src="logo.png" alt="Claro sobre oscuro" style="filter: invert(1);">
+      </div>
+      <div class="lv-info">
+        <h4>Invertido &mdash; Blanco</h4>
+        <p>Usar sobre fondos oscuros, productos oscuros, fotograf&iacute;a.</p>
+      </div>
+    </div>
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Versi&oacute;n amarilla" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) brightness(1.1);">
+      </div>
+      <div class="lv-info">
+        <h4>Acento &mdash; Amarillo</h4>
+        <p>Versi&oacute;n Caution Yellow para aplicaciones especiales y merch.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Versi&oacute;n con Dominio &mdash; .com.co</h3>
+  <p class="body-text">Variante del wordmark que incluye el dominio web <strong>shifter.com.co</strong>. Se usa en materiales donde se quiera dirigir tr&aacute;fico al sitio: tarjetas de presentaci&oacute;n, stickers promocionales, empaques, publicidad digital y puntos de contacto donde la URL agrega valor.</p>
+
+  <!-- Primario: sobre fondo gris -->
+  <div class="logo-display">
+    <img src="logo-comco.png" alt="Logo SHIFTER.com.co sobre gris">
+  </div>
+
+  <!-- Invertido: claro sobre oscuro -->
+  <div class="logo-display-dark">
+    <img src="logo-comco.png" alt="Logo SHIFTER.com.co sobre negro">
+  </div>
+
+  <!-- Acento: sobre amarillo -->
+  <div class="logo-display-yellow">
+    <img src="logo-comco.png" alt="Logo SHIFTER.com.co sobre amarillo">
+  </div>
+
+  <h3>Variantes del Logo .com.co</h3>
+  <div class="logo-variants">
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--anodized);">
+        <img src="logo-comco.png" alt="Oscuro sobre gris" style="filter: invert(1);">
+      </div>
+      <div class="lv-info">
+        <h4>Primario &mdash; Oscuro</h4>
+        <p>Con dominio. Para fondos claros, superficies neutras, papel.</p>
+      </div>
+    </div>
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--black-oxide);">
+        <img src="logo-comco.png" alt="Claro sobre oscuro" style="filter: invert(1);">
+      </div>
+      <div class="lv-info">
+        <h4>Invertido &mdash; Blanco</h4>
+        <p>Con dominio. Para fondos oscuros, productos oscuros, fotograf&iacute;a.</p>
+      </div>
+    </div>
+    <div class="logo-variant-card">
+      <div class="lv-preview" style="background: var(--anodized);">
+        <img src="logo-comco.png" alt="Versi&oacute;n amarilla" style="filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg) brightness(1.1);">
+      </div>
+      <div class="lv-info">
+        <h4>Acento &mdash; Amarillo</h4>
+        <p>Con dominio. Caution Yellow para aplicaciones especiales y merch.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="body-text" style="margin-top: 1.5rem;"><strong>Reglas de uso:</strong> Aplican las mismas normas de espacio libre, tama&ntilde;o m&iacute;nimo y uso incorrecto del logo principal. El dominio &ldquo;.com.co&rdquo; nunca debe separarse del wordmark SHIFTER ni cambiar de tipograf&iacute;a o proporci&oacute;n respecto al original entregado.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Espacio Libre</h3>
+  <p class="body-text">Mantener un espacio libre m&iacute;nimo alrededor del logo equivalente a la altura de la letra &ldquo;S&rdquo; en SHIFTER. Esto asegura que la marca siempre sea legible y nunca est&eacute; invadida por otros elementos.</p>
+  <div class="clearspace-demo">
+    <img class="cs-logo" src="logo.png" alt="Clear space demo">
+    <div class="cs-border"></div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Tama&ntilde;o M&iacute;nimo</h3>
+  <p class="body-text">El logo nunca debe reproducirse a menos de <strong>80px de ancho</strong> en digital o <strong>25mm de ancho</strong> en impresi&oacute;n. Por debajo de estos tama&ntilde;os, las letras pierden definici&oacute;n y el punto se vuelve ilegible.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Uso Incorrecto del Logo</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Protege la integridad de la marca SHIFTER. Nunca alterar, distorsionar o comprometer el wordmark.</p>
+  <div class="dos-donts">
+    <div class="dd-card">
+      <div class="dd-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Uso correcto" style="filter: invert(1);">
+      </div>
+      <div class="dd-label do">S&Iacute; &mdash; Correcto</div>
+      <div class="dd-desc">Usar el logo tal como se entrega, en proporciones correctas, con espacio libre adecuado.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Estirado" style="width: 180px; transform: scaleY(0.5); opacity: 0.5; filter: invert(1);">
+      </div>
+      <div class="dd-label dont">NO &mdash; Estirar o Distorsionar</div>
+      <div class="dd-desc">Nunca alterar las proporciones. Siempre escalar uniformemente.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-preview" style="background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77);">
+        <img src="logo.png" alt="Fondo recargado" style="width: 180px; opacity: 0.4;">
+      </div>
+      <div class="dd-label dont">NO &mdash; Fondos Recargados</div>
+      <div class="dd-desc">Nunca colocar el logo sobre fondos multicolor o de bajo contraste.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Color no aprobado" style="width: 180px; filter: invert(1) hue-rotate(180deg) saturate(2); opacity: 0.6;">
+      </div>
+      <div class="dd-label dont">NO &mdash; Colores No Aprobados</div>
+      <div class="dd-desc">Solo usar versiones en Black Oxide, Paper White o Caution Yellow.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Rotado" style="width: 180px; transform: rotate(15deg); opacity: 0.5; filter: invert(1);">
+      </div>
+      <div class="dd-label dont">NO &mdash; Rotar</div>
+      <div class="dd-desc">El &aacute;ngulo del logo es intencional. Nunca a&ntilde;adir rotaci&oacute;n.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-preview" style="background: var(--anodized);">
+        <img src="logo.png" alt="Sombra" style="width: 180px; filter: invert(1) drop-shadow(4px 4px 8px rgba(0,0,0,0.5)); opacity: 0.6;">
+      </div>
+      <div class="dd-label dont">NO &mdash; A&ntilde;adir Efectos</div>
+      <div class="dd-desc">Sin sombras, brillos, biseles, degradados ni contornos sobre el logo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  03 · COLORS                                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="colors">
+  <span class="section-number">03 &mdash; Paleta de Color</span>
+  <h2>Precisi&oacute;n Industrial.<br>Borde C&aacute;lido.</h2>
+  <p class="lead">La paleta de SHIFTER se inspira en los materiales de la rodada: acabados en &oacute;xido negro, acero crudo, aluminio anodizado &mdash; anclada por Caution Yellow, una se&ntilde;al de energ&iacute;a, visibilidad e intenci&oacute;n.</p>
+
+  <div class="color-hero">
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #0A0A0A;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Black Oxide</div>
+        <div class="cs-hex">#0A0A0A</div>
+        <div class="cs-rgb">RGB 10, 10, 10</div>
+        <div class="cs-role">Fondo Principal</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #1E1E1E;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Raw Steel</div>
+        <div class="cs-hex">#1E1E1E</div>
+        <div class="cs-rgb">RGB 30, 30, 30</div>
+        <div class="cs-role">Superficie Secundaria</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #D4A72B;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Caution Yellow</div>
+        <div class="cs-hex">#D4A72B</div>
+        <div class="cs-rgb">RGB 212, 167, 43</div>
+        <div class="cs-role">Acento Principal</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #F0ECE4;"></div>
+      <div class="cs-info">
+        <div class="cs-name" style="color: var(--black-oxide);">Paper White</div>
+        <div class="cs-hex"><!-- -->#F0ECE4</div>
+        <div class="cs-rgb">RGB 240, 236, 228</div>
+        <div class="cs-role">Texto &amp; Superficies Claras</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #3D3D3D;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Anodized</div>
+        <div class="cs-hex">#3D3D3D</div>
+        <div class="cs-rgb">RGB 61, 61, 61</div>
+        <div class="cs-role">Terciario / Bordes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Paleta Extendida</h3>
+  <p class="body-text" style="margin-bottom: 2rem;">Estos colores funcionales soportan estados de UI, alertas y retroalimentaci&oacute;n. Usar con moderaci&oacute;n &mdash; la paleta principal debe dominar.</p>
+  <div class="color-hero" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #E8C45A; height: 120px;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Yellow Light</div>
+        <div class="cs-hex">#E8C45A</div>
+        <div class="cs-role">Hover / Resaltado</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #B08D1F; height: 120px;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Yellow Dark</div>
+        <div class="cs-hex">#B08D1F</div>
+        <div class="cs-role">Activo / Presionado</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #4CAF50; height: 120px;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Signal Green</div>
+        <div class="cs-hex">#4CAF50</div>
+        <div class="cs-role">&Eacute;xito</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="cs-block" style="background: #EF5350; height: 120px;"></div>
+      <div class="cs-info">
+        <div class="cs-name">Signal Red</div>
+        <div class="cs-hex">#EF5350</div>
+        <div class="cs-role">Error / Alerta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Proporciones de Color</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">La regla 60-25-10-5 asegura jerarqu&iacute;a visual y consistencia en todas las aplicaciones de marca.</p>
+  <div class="color-ratios">
+    <div class="cr-segment" style="flex: 6; background: #0A0A0A; border: 1px solid rgba(240,236,228,0.08);"><span style="color: var(--paper-white);">60%</span></div>
+    <div class="cr-segment" style="flex: 2.5; background: #1E1E1E;"><span style="color: var(--paper-white);">25%</span></div>
+    <div class="cr-segment" style="flex: 1; background: #D4A72B;"><span style="color: var(--black-oxide);">10%</span></div>
+    <div class="cr-segment" style="flex: 0.5; background: #F0ECE4;"><span style="color: var(--black-oxide);">5%</span></div>
+  </div>
+  <div class="cr-labels" style="display: flex;">
+    <div class="cr-label" style="flex: 6;">Black Oxide &mdash; Fondos</div>
+    <div class="cr-label" style="flex: 2.5;">Raw Steel &mdash; Tarjetas &amp; Superficies</div>
+    <div class="cr-label" style="flex: 1;">Caution Yellow</div>
+    <div class="cr-label" style="flex: 0.5;">Paper</div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Combinaciones Accesibles</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Siempre asegurar contraste suficiente. Estas son las combinaciones de alto contraste aprobadas.</p>
+  <div class="accessibility-grid">
+    <div class="acc-combo" style="background: #0A0A0A;">
+      <div class="acc-sample" style="color: #F0ECE4;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(240,236,228,0.5);">Paper White sobre Black Oxide</div>
+      <div class="acc-pass pass-aaa">AAA &mdash; 17.4:1</div>
+    </div>
+    <div class="acc-combo" style="background: #0A0A0A;">
+      <div class="acc-sample" style="color: #D4A72B;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(240,236,228,0.5);">Caution Yellow sobre Black Oxide</div>
+      <div class="acc-pass pass-aa">AA &mdash; 8.2:1</div>
+    </div>
+    <div class="acc-combo" style="background: #D4A72B;">
+      <div class="acc-sample" style="color: #0A0A0A;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(10,10,10,0.6);">Black Oxide sobre Caution Yellow</div>
+      <div class="acc-pass pass-aa">AA &mdash; 8.2:1</div>
+    </div>
+    <div class="acc-combo" style="background: #F0ECE4; border: 1px solid rgba(240,236,228,0.15);">
+      <div class="acc-sample" style="color: #0A0A0A;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(10,10,10,0.5);">Black Oxide sobre Paper White</div>
+      <div class="acc-pass pass-aaa">AAA &mdash; 17.4:1</div>
+    </div>
+    <div class="acc-combo" style="background: #1E1E1E;">
+      <div class="acc-sample" style="color: #D4A72B;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(240,236,228,0.5);">Caution Yellow sobre Raw Steel</div>
+      <div class="acc-pass pass-aa">AA &mdash; 6.5:1</div>
+    </div>
+    <div class="acc-combo" style="background: #1E1E1E;">
+      <div class="acc-sample" style="color: #F0ECE4;">Aa</div>
+      <div class="acc-ratio" style="color: rgba(240,236,228,0.5);">Paper White sobre Raw Steel</div>
+      <div class="acc-pass pass-aaa">AAA &mdash; 13.8:1</div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Degradados Aprobados</h3>
+  <div class="gradient-row">
+    <div class="gradient-card" style="background: linear-gradient(135deg, #0A0A0A, #1E1E1E);">
+      <span>Oxide &rarr; Steel</span>
+    </div>
+    <div class="gradient-card" style="background: linear-gradient(135deg, #1E1E1E, #D4A72B);">
+      <span>Steel &rarr; Caution</span>
+    </div>
+    <div class="gradient-card" style="background: linear-gradient(135deg, #D4A72B, #B08D1F);">
+      <span>Caution &rarr; Dark Gold</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  04 · TYPOGRAPHY                               -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="typography">
+  <span class="section-number">04 &mdash; Tipograf&iacute;a</span>
+  <h2>Tipograf&iacute;a Ingenieril.</h2>
+  <p class="lead">SHIFTER usa un sistema tipogr&aacute;fico de tres niveles: Space Grotesk para display y t&iacute;tulos, Inter para texto de cuerpo, y JetBrains Mono para detalles t&eacute;cnicos. Juntos crean una voz moderna, precisa e industrial.</p>
+
+  <div class="type-specimen">
+    <span class="ts-label">Display &mdash; Space Grotesk</span>
+    <div class="type-primary">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ</div>
+    <div class="type-primary" style="font-size: 3rem; margin-top: 1rem;">abcdefghijklmnopqrstuvwxyz</div>
+    <div class="type-primary" style="font-size: 2rem; margin-top: 1rem; color: var(--caution-yellow);">0123456789 !@#$%&</div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <div class="type-specimen">
+    <span class="ts-label">Body &mdash; Inter</span>
+    <div class="type-secondary">El veloz zorro marr&oacute;n salta sobre el perro perezoso.</div>
+    <div class="type-secondary" style="font-size: 1rem; margin-top: 0.5rem;">Accesorios premium para motocicletas. Dise&ntilde;ados para riders de aventura colombianos. Navegaci&oacute;n CarPlay, equipaje en aluminio LOBOO, defensas de motor y partes de rendimiento. Probados en cada terreno desde los Andes hasta la Amazon&iacute;a.</div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <div class="type-specimen">
+    <span class="ts-label">Technical &mdash; JetBrains Mono</span>
+    <div class="type-mono">SKU: SHF-CPL5-2026 &middot; IP67 &middot; 5.5" IPS &middot; 800cd/m&sup2;</div>
+    <div class="type-mono" style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--caution-yellow);">$1,199,000 COP &middot; ENV&Iacute;O GRATIS &gt; $700K</div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Escala Tipogr&aacute;fica</h3>
+  <div class="type-scale">
+    <div class="type-scale-item">
+      <div class="ts-meta">H1<br>56px / 700<br>-0.02em tracking</div>
+      <div class="ts-sample ts-h1">Gear That Moves You</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">H2<br>40px / 700<br>-0.02em tracking</div>
+      <div class="ts-sample ts-h2">Equipo Grado Aventura</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">H3<br>28px / 600<br>-0.01em tracking</div>
+      <div class="ts-sample ts-h3">LOBOO Pike Tracker Series</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">H4<br>20px / 600<br>Normal tracking</div>
+      <div class="ts-sample ts-h4">CarPlay 5.5" con C&aacute;maras Duales</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">Body<br>16px / 400<br>Inter</div>
+      <div class="ts-sample ts-body">Pantalla IPS de alta visibilidad con certificaci&oacute;n IP67. Compatible con todos los smartphones v&iacute;a Bluetooth. Montaje universal incluido.</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">Small<br>14px / 400<br>Inter</div>
+      <div class="ts-sample ts-small">Env&iacute;o gratis en pedidos superiores a $700,000 COP. Entrega en 3-5 d&iacute;as h&aacute;biles.</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="ts-meta">Caption<br>12px / 500<br>JetBrains Mono</div>
+      <div class="ts-sample ts-caption">REF: SHF-LOBOO-PIKE-45L &middot; PESO: 4.2KG &middot; MATERIAL: ALUMINIO 6061-T6</div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Sistema de Pesos</h3>
+  <div class="weight-grid">
+    <div class="weight-card">
+      <div class="wc-sample" style="font-weight: 400;">Ag</div>
+      <div class="wc-name">Regular</div>
+      <div class="wc-val">400 &mdash; Texto de cuerpo</div>
+    </div>
+    <div class="weight-card">
+      <div class="wc-sample" style="font-weight: 500;">Ag</div>
+      <div class="wc-name">Medium</div>
+      <div class="wc-val">500 &mdash; Navegaci&oacute;n, etiquetas</div>
+    </div>
+    <div class="weight-card">
+      <div class="wc-sample" style="font-weight: 600;">Ag</div>
+      <div class="wc-name">SemiBold</div>
+      <div class="wc-val">600 &mdash; Subt&iacute;tulos</div>
+    </div>
+    <div class="weight-card">
+      <div class="wc-sample" style="font-weight: 700;">Ag</div>
+      <div class="wc-name">Bold</div>
+      <div class="wc-val">700 &mdash; T&iacute;tulos, CTAs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  05 · BRAND VOICE                              -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="voice">
+  <span class="section-number">05 &mdash; Voz de Marca</span>
+  <h2>C&oacute;mo Habla SHIFTER.</h2>
+  <p class="lead">SHIFTER habla como un compa&ntilde;ero de ruta con conocimiento &mdash; directo, seguro y nunca condescendiente. Lideramos con especificaciones y rendimiento real, no con hype. Respetamos la inteligencia del rider.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Espectro de Tono</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">SHIFTER se ubica en una zona espec&iacute;fica: t&eacute;cnico pero accesible, seguro pero no agresivo.</p>
+  <div class="tone-spectrum">
+    <div class="tone-bar tone-far">
+      <h5>Juguet&oacute;n</h5>
+      <p>Demasiado casual para nuestra categor&iacute;a</p>
+    </div>
+    <div class="tone-bar tone-adjacent">
+      <h5>Cercano</h5>
+      <p>Soporte WhatsApp, redes</p>
+    </div>
+    <div class="tone-bar tone-active">
+      <h5>Seguro</h5>
+      <p>Voz central &mdash; tono por defecto</p>
+    </div>
+    <div class="tone-bar tone-adjacent">
+      <h5>T&eacute;cnico</h5>
+      <p>Specs de producto, comparaciones</p>
+    </div>
+    <div class="tone-bar tone-far">
+      <h5>Corporativo</h5>
+      <p>Demasiado formal para nuestra marca</p>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>La Voz en Acci&oacute;n</h3>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <h4>Descripci&oacute;n de Producto</h4>
+      <div class="voice-example">&ldquo;5.5 pulgadas de pantalla IPS. C&aacute;maras duales. IP67. Montaje universal. Lo que necesitas para navegar sin soltar el manubrio.&rdquo;</div>
+      <div class="voice-context">Primero specs. Despu&eacute;s beneficio. Sin relleno.</div>
+    </div>
+    <div class="voice-card">
+      <h4>Caption de Instagram</h4>
+      <div class="voice-example">&ldquo;El LOBOO Pike Tracker no es una maleta. Es 45 litros de aluminio 6061-T6 que no te van a fallar en la Ruta de los Libertadores.&rdquo;</div>
+      <div class="voice-context">Terreno real. Productos reales. Riders reales.</div>
+    </div>
+    <div class="voice-card">
+      <h4>Banner Principal</h4>
+      <div class="voice-example">&ldquo;Accesorios premium para motos de aventura. Probados en Colombia. Enviados a tu puerta.&rdquo;</div>
+      <div class="voice-context">Tres golpes cortos. Propuesta de valor clara.</div>
+    </div>
+    <div class="voice-card">
+      <h4>Soporte WhatsApp</h4>
+      <div class="voice-example">&ldquo;Hola, soy Juan de SHIFTER. Cu&eacute;ntame qu&eacute; moto tienes y te ayudo a escoger la mejor opci&oacute;n.&rdquo;</div>
+      <div class="voice-context">C&aacute;lido pero eficiente. Siempre pregunta primero por la moto.</div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Decimos / No Decimos</h3>
+  <div class="say-grid">
+    <div class="say-col say-yes">
+      <h4>SHIFTER Dice</h4>
+      <ul>
+        <li>&ldquo;Aluminio 6061-T6, soldadura TIG&rdquo;</li>
+        <li>&ldquo;Probado en ruta&rdquo;</li>
+        <li>&ldquo;Certificaci&oacute;n IP67&rdquo;</li>
+        <li>&ldquo;Distribuidor autorizado LOBOO&rdquo;</li>
+        <li>&ldquo;Env&iacute;o gratis a toda Colombia&rdquo;</li>
+        <li>&ldquo;Gear That Moves You&rdquo;</li>
+        <li>&ldquo;Hecho para rodar, no para exhibir&rdquo;</li>
+        <li>&ldquo;Lo que tu aventura necesita&rdquo;</li>
+      </ul>
+    </div>
+    <div class="say-col say-no">
+      <h4>SHIFTER No Dice</h4>
+      <ul>
+        <li>&ldquo;El mejor precio del mercado!!&rdquo;</li>
+        <li>&ldquo;OFERTA IMPERDIBLE&rdquo;</li>
+        <li>&ldquo;Estilo &uacute;nico y exclusivo&rdquo;</li>
+        <li>&ldquo;Para los m&aacute;s exigentes&rdquo;</li>
+        <li>&ldquo;Producto de lujo&rdquo;</li>
+        <li>&ldquo;No te lo pierdas!!!&rdquo;</li>
+        <li>&ldquo;El accesorio de moda&rdquo;</li>
+        <li>&ldquo;Precio LOCO / INCREIBLE&rdquo;</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  06 · PHOTOGRAPHY                              -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="photography">
+  <span class="section-number">06 &mdash; Fotograf&iacute;a &amp; Imagen</span>
+  <h2>Terreno Real.<br>Equipo Real.</h2>
+  <p class="lead">La fotograf&iacute;a de SHIFTER prioriza la autenticidad. Productos en motos reales, en condiciones reales, en terreno colombiano. Sin fotos glamurosas de estudio. Sin relleno lifestyle. Mostrar el equipo haciendo lo que fue dise&ntilde;ado para hacer.</p>
+
+  <div class="photo-principles">
+    <div class="photo-card">
+      <div class="pc-icon">&gt;_</div>
+      <h4>Producto In Situ</h4>
+      <p>Productos montados en motos reales. Mostrar ajuste, escala e integraci&oacute;n. BMW GS, KTM ADV, Royal Enfield en entornos naturales &mdash; carreteras colombianas, pasos de monta&ntilde;a, cruces de r&iacute;o.</p>
+    </div>
+    <div class="photo-card">
+      <div class="pc-icon">[ ]</div>
+      <h4>Close-Ups de Detalle</h4>
+      <p>Tomas macro de materiales, soldaduras, seguros, interfaces de pantalla. Mostrar la ingenier&iacute;a. Grano del aluminio, soldaduras TIG, sellos IP67, mecanismos de liberaci&oacute;n r&aacute;pida. Iluminaci&oacute;n oscura y dram&aacute;tica.</p>
+    </div>
+    <div class="photo-card">
+      <div class="pc-icon">///</div>
+      <h4>Contexto de Terreno</h4>
+      <p>Paisajes colombianos como fondo: curvas andinas, caminos cafeteros, desiertos, senderos selv&aacute;ticos. El terreno valida el producto. Nunca artificial ni sobreproducido.</p>
+    </div>
+    <div class="photo-card">
+      <div class="pc-icon">&mdash;&mdash;</div>
+      <h4>Post-Producci&oacute;n M&iacute;nima</h4>
+      <p>Desaturado, grade de color ligeramente fr&iacute;o. Levantar las sombras suavemente. Nunca sobresaturado ni HDR. La est&eacute;tica de marca es mate, industrial y honesta &mdash; como los productos mismos.</p>
+    </div>
+    <div class="photo-card">
+      <div class="pc-icon">::</div>
+      <h4>Centrado en el Rider, No en el Modelo</h4>
+      <p>Mostrar riders con equipo completo, enfocados en el camino. Nunca fotos posadas de estudio. El rider es parte de la historia, pero el equipo es el h&eacute;roe. Casco puesto, guantes puestos, botas con polvo.</p>
+    </div>
+    <div class="photo-card">
+      <div class="pc-icon">##</div>
+      <h4>Flat-Lay T&eacute;cnico</h4>
+      <p>Para redes y web &mdash; tomas cenitales limpias de producto + herramientas/accesorios sobre superficies oscuras. Organizadas, geom&eacute;tricas. Manual t&eacute;cnico que se encuentra con cat&aacute;logo de equipo.</p>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Tratamiento de Overlay Fotogr&aacute;fico</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Cuando se necesiten textos sobre fotograf&iacute;a, siempre usar un degradado oscuro desde abajo. Nunca colocar texto directamente sobre im&aacute;genes sin procesar.</p>
+  <div class="photo-overlay-demo">
+    <div class="pod-item" style="background-color: var(--anodized);">
+      <div class="pod-text">
+        <h4>LOBOO Pike Tracker 45L</h4>
+        <p>Aluminio 6061-T6 &middot; desde $1,740,000</p>
+      </div>
+    </div>
+    <div class="pod-item" style="background-color: #2a2a2a;">
+      <div class="pod-text">
+        <h4>CarPlay 5.5" C&aacute;mara Dual</h4>
+        <p>IP67 &middot; Liberaci&oacute;n R&aacute;pida &middot; $1,199,000</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  07 · APPLICATIONS                             -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="applications">
+  <span class="section-number">07 &mdash; Aplicaciones de Marca</span>
+  <h2>La Marca en Uso.</h2>
+  <p class="lead">La consistencia es autoridad. Cada punto de contacto &mdash; desde una tarjeta de presentaci&oacute;n hasta una caja de env&iacute;o &mdash; refuerza la identidad de SHIFTER.</p>
+
+  <div class="app-grid">
+    <!-- Business Card Front -->
+    <div class="app-card">
+      <div class="app-preview" style="background: var(--anodized);">
+        <div class="bcard bcard-front">
+          <img src="logo.png" alt="SHIFTER" style="filter: invert(1);">
+          <div class="bcard-tagline">Gear That Moves You</div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Tarjeta de Presentaci&oacute;n &mdash; Frente</h4>
+        <p>Logo + tagline sobre Black Oxide. Limpio, m&iacute;nimo, seguro.</p>
+      </div>
+    </div>
+
+    <!-- Business Card Back -->
+    <div class="app-card">
+      <div class="app-preview" style="background: var(--anodized);">
+        <div class="bcard bcard-back">
+          <div>
+            <div class="bcard-name">Luigy Roso</div>
+            <div class="bcard-title">Co-Fundador &amp; Producto</div>
+          </div>
+          <div class="bcard-details">
+            shifter.com.co<br>
+            @shifter.moto<br>
+            shiftermotos@gmail.com
+          </div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Tarjeta de Presentaci&oacute;n &mdash; Reverso</h4>
+        <p>Info de contacto sobre Caution Yellow. JetBrains Mono para detalles.</p>
+      </div>
+    </div>
+
+    <!-- Instagram Profile -->
+    <div class="app-card">
+      <div class="app-preview" style="background: var(--black-oxide);">
+        <div class="social-mockup">
+          <div class="sm-header">
+            <div class="sm-avatar">S.</div>
+            <div>
+              <div class="sm-handle">shifter.moto</div>
+              <div class="sm-sub">Gear That Moves You</div>
+            </div>
+          </div>
+          <div class="sm-image">
+            <img src="logo.png" alt="SHIFTER">
+          </div>
+          <div class="sm-caption">
+            <strong>shifter.moto</strong> LOBOO Pike Tracker. 45 litros de aluminio que no le temen a nada. Distribuidor autorizado en Colombia.
+          </div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Perfil de Instagram</h4>
+        <p>Avatar: "S." sobre Caution Yellow. Bio: tagline + enlace.</p>
+      </div>
+    </div>
+
+    <!-- Product Tag -->
+    <div class="app-card">
+      <div class="app-preview" style="background: var(--anodized);">
+        <div class="product-tag">
+          <img src="logo.png" alt="SHIFTER">
+          <div class="pt-line"></div>
+          <div>
+            <div class="pt-text">Accesorios Premium<br>para Motocicleta</div>
+            <div class="pt-code">shifter.com.co</div>
+          </div>
+        </div>
+      </div>
+      <div class="app-info">
+        <h4>Etiqueta de Producto</h4>
+        <p>Adjunta a cada producto enviado. Cart&oacute;n negro, acento en foil dorado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Sistema de Stickers &amp; Calcoman&iacute;as</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Stickers que los riders realmente quieren en sus motos. Tres versiones para diferentes superficies.</p>
+  <div class="sticker-row">
+    <div class="sticker sticker-dark">
+      <img src="logo.png" alt="Dark sticker">
+    </div>
+    <div class="sticker sticker-yellow">
+      <img src="logo.png" alt="Yellow sticker">
+    </div>
+    <div class="sticker sticker-white">
+      <img src="logo.png" alt="White sticker">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  08 · DIGITAL & UI                             -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="digital">
+  <span class="section-number">08 &mdash; Gu&iacute;as Digitales &amp; UI</span>
+  <h2>La Experiencia Shopify.</h2>
+  <p class="lead">Cada interacci&oacute;n digital debe sentirse premium, r&aacute;pida e ingenieril. UI dark-mode-first con Caution Yellow como color de acci&oacute;n principal. Sin ruido visual. Que los productos hablen.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Sistema de Botones</h3>
+  <div class="button-showcase">
+    <button class="btn btn-primary">Agregar al Carrito</button>
+    <button class="btn btn-secondary">Ver Specs</button>
+    <button class="btn btn-dark">Cont&aacute;ctanos</button>
+    <button class="btn btn-ghost">Saber M&aacute;s</button>
+  </div>
+  <div class="button-showcase" style="margin-top: 1rem;">
+    <button class="btn btn-primary btn-small">Comprar</button>
+    <button class="btn btn-secondary btn-small">Comparar</button>
+    <button class="btn btn-ghost btn-small">Detalles</button>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Componentes UI</h3>
+  <div class="ui-components">
+    <!-- Inputs de formulario -->
+    <div class="ui-comp">
+      <span class="ui-comp-label">Inputs de Formulario</span>
+      <span class="input-label">Email</span>
+      <div class="input-mock">rider@example.com</div>
+      <span class="input-label">Modelo de Moto</span>
+      <div class="input-mock">BMW R1300GS Adventure</div>
+      <button class="btn btn-primary btn-small" style="margin-top: 0.5rem; width: 100%;">Suscribirse</button>
+    </div>
+
+    <!-- Tarjeta de producto -->
+    <div class="ui-comp">
+      <span class="ui-comp-label">Tarjeta de Producto</span>
+      <div class="prod-card-mock">
+        <div class="pcm-image"><span>[ Foto de Producto ]</span></div>
+        <div class="pcm-info">
+          <div class="pcm-cat">LOBOO Luggage</div>
+          <div class="pcm-name">Pike Tracker 45L Topcase</div>
+          <div>
+            <span class="pcm-price">$1,740,000</span>
+            <span class="pcm-old-price">$2,100,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="ui-comp">
+      <span class="ui-comp-label">Patr&oacute;n de Navegaci&oacute;n</span>
+      <div style="display: flex; gap: 2rem; padding: 1rem 0; border-bottom: 1px solid rgba(240,236,228,0.08);">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--caution-yellow);">CarPlay</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.85rem; color: rgba(240,236,228,0.5);">Topcases</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.85rem; color: rgba(240,236,228,0.5);">Defensas</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.85rem; color: rgba(240,236,228,0.5);">Luces</span>
+      </div>
+      <p style="font-size: 0.75rem; color: rgba(240,236,228,0.3); margin-top: 1rem;">Estado activo: Caution Yellow. Inactivo: 50% Paper White.</p>
+    </div>
+
+    <!-- Badge / Tag System -->
+    <div class="ui-comp">
+      <span class="ui-comp-label">Insignias &amp; Etiquetas</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem;">
+        <span style="background: var(--caution-yellow); color: var(--black-oxide); padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">-24% OFF</span>
+        <span style="background: rgba(76,175,80,0.15); color: #66BB6A; padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">EN STOCK</span>
+        <span style="border: 1px solid rgba(240,236,228,0.15); color: rgba(240,236,228,0.5); padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">ENV&Iacute;O GRATIS</span>
+        <span style="background: rgba(212,167,43,0.1); color: var(--caution-yellow); padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">AUTORIZADO</span>
+        <span style="background: rgba(244,67,54,0.15); color: #EF5350; padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">&Uacute;LTIMAS UNIDADES</span>
+        <span style="background: var(--anodized); color: var(--paper-white); padding: 0.3rem 0.8rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em;">IP67</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Sistema de Espaciado</h3>
+  <p class="body-text" style="margin-bottom: 2rem;">Usar una escala de espaciado base-8 para consistencia en todas las aplicaciones digitales.</p>
+  <div style="display: flex; gap: 1.5rem; align-items: flex-end; margin: 2rem 0;">
+    <div style="text-align: center;">
+      <div style="width: 4px; height: 4px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">4px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 8px; height: 8px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">8px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 16px; height: 16px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">16px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 24px; height: 24px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">24px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 32px; height: 32px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">32px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 48px; height: 48px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">48px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 64px; height: 64px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">64px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 96px; height: 96px; background: var(--caution-yellow); margin: 0 auto 0.8rem;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4);">96px</span>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Radio de Borde</h3>
+  <p class="body-text" style="margin-bottom: 2rem;">Radio m&iacute;nimo. Bordes afilados e industriales. Nunca redondeados ni con forma de p&iacute;ldora.</p>
+  <div style="display: flex; gap: 2rem; align-items: center; margin: 1rem 0;">
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: var(--caution-yellow); border-radius: 0;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4); margin-top: 0.5rem; display: block;">0px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: var(--caution-yellow); border-radius: 2px;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4); margin-top: 0.5rem; display: block;">2px</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: var(--caution-yellow); border-radius: 4px;"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(240,236,228,0.4); margin-top: 0.5rem; display: block;">4px &mdash; max</span>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 80px; height: 80px; background: rgba(240,236,228,0.1); border-radius: 40px; border: 1px dashed rgba(244,67,54,0.4);"></div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #EF5350; margin-top: 0.5rem; display: block;">Nunca redondo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  09 · ICONOGRAPHY & PATTERNS                   -->
+<!-- ═══════════════════════════════════════════════ -->
+<section id="iconography">
+  <span class="section-number">09 &mdash; Iconograf&iacute;a &amp; Patrones</span>
+  <h2>Lenguaje Visual.</h2>
+  <p class="lead">SHIFTER usa un sistema de iconos m&iacute;nimo y un conjunto de patrones de marca para crear textura e inter&eacute;s visual sin comprometer la est&eacute;tica industrial.</p>
+
+  <div class="divider-thin"></div>
+
+  <h3>Principios de Iconos</h3>
+  <div class="essence-grid">
+    <div class="essence-card">
+      <h3>Estilo</h3>
+      <p>Iconos de contorno, trazo de 1.5px, esquinas cuadradas (en l&iacute;nea con el border radius de 2-4px). Los iconos deben sentirse t&eacute;cnicos y precisos &mdash; como dibujos de ingenier&iacute;a, no ilustraciones amigables. Paper White sobre fondos oscuros, Black Oxide sobre claros.</p>
+    </div>
+    <div class="essence-card">
+      <h3>Grilla de Tama&ntilde;os</h3>
+      <p>Iconos a 16px, 20px, 24px o 32px. Siempre en grilla de 8px. Alineaci&oacute;n &oacute;ptica por encima de la matem&aacute;tica. Los iconos deben tener peso visual consistente &mdash; probar a 16px para asegurar legibilidad.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 3rem;">Set de Iconos Funcionales</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Estos representan el set m&iacute;nimo de iconos para la tienda Shopify y materiales de marketing. Usar estilo outline de Lucide, Phosphor o sets geom&eacute;tricos similares.</p>
+  <div class="icon-grid">
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9670;</span>
+      <span class="icon-name">Navegaci&oacute;n</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9744;</span>
+      <span class="icon-name">Equipaje</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9670;</span>
+      <span class="icon-name">Protecci&oacute;n</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#10038;</span>
+      <span class="icon-name">Iluminaci&oacute;n</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#8644;</span>
+      <span class="icon-name">Env&iacute;o</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#10003;</span>
+      <span class="icon-name">Garant&iacute;a</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9742;</span>
+      <span class="icon-name">Soporte</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9733;</span>
+      <span class="icon-name">Rese&ntilde;as</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#128274;</span>
+      <span class="icon-name">Seguridad</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#8634;</span>
+      <span class="icon-name">Devoluciones</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9881;</span>
+      <span class="icon-name">Instalaci&oacute;n</span>
+    </div>
+    <div class="icon-item">
+      <span class="icon-svg" style="font-size: 1.4rem;">&#9656;</span>
+      <span class="icon-name">Video</span>
+    </div>
+  </div>
+
+  <div class="divider-thin"></div>
+
+  <h3>Patrones de Marca</h3>
+  <p class="body-text" style="margin-bottom: 1rem;">Tres patrones aprobados para fondos, packaging y activos digitales. Siempre usar a baja opacidad para mantener la sensaci&oacute;n oscura e industrial.</p>
+  <div class="pattern-grid">
+    <div class="pattern-card pat-stripes">
+      <div class="pc-label">Franja de Precauci&oacute;n &mdash; Packaging, banners</div>
+    </div>
+    <div class="pattern-card pat-dots">
+      <div class="pc-label">Grilla de Puntos &mdash; Fondos t&eacute;cnicos</div>
+    </div>
+    <div class="pattern-card pat-grid-lines">
+      <div class="pc-label">Grilla de Ingenier&iacute;a &mdash; Specs, diagramas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--  FOOTER                                        -->
+<!-- ═══════════════════════════════════════════════ -->
+<footer>
+  <img src="logo.png" alt="SHIFTER.">
+  <p>SHIFTER &middot; Manual de Marca v1.0 &middot; 2026</p>
+  <p style="margin-top: 0.5rem;">shifter.com.co &middot; @shifter.moto &middot; Bogot&aacute;, Colombia</p>
+</footer>
+
+</body>
+</html>
